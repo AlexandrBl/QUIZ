@@ -1,20 +1,20 @@
-const questionForm = document.querySelector('.form');
+const questionForm = document.querySelector('.question');
 const questionResult = document.querySelector('.question__result');
 
 if (questionForm) {
   questionForm.addEventListener('submit', async (event) => {
     event.preventDefault();
+    const { uniqueradio } = event.target;
+    const id = uniqueradio.value;
 
-    const { id } = event.target;
-
-    const res = await fetch('themesApi.route.js', {
+    const res = await fetch('/api/themes', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: {
-        id: id.value,
-      },
+      body: JSON.stringify({
+        id,
+      }),
     });
     const data = await res.json();
 

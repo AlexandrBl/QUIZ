@@ -11,7 +11,7 @@ module.exports = function QuestionCard({ question, answers }) {
         <form className="question">
           {answers.map((el, index) => (
             <div className="question__choose">
-              <input id={index} name="unique-radio" type="radio" className="question__choose-radio" value={el.id} />
+              <input id={index} name="uniqueradio" type="radio" className="question__choose-radio" value={el.id} />
               {' '}
               <label className="question__choose-text">{el.answer_text}</label>
             </div>

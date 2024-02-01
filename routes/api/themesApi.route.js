@@ -9,7 +9,7 @@ router.post('/', async (req, res) => {
     const { id } = req.body;
     const answer = await Answer.findOne({ where: { id } });
 
-    if (answer) {
+    if (answer.isRight) {
       res.json({ message: 'Правильно' });
     } else {
       res.json({ message: 'Не правильно' });
