@@ -1,9 +1,10 @@
 const express = require('express');
 
 const router = express.Router();
-const { Theme, Question } = require('../../db/models');
+const { Theme, Question, Answer } = require('../../db/models');
 
 const ThemePage = require('../../components/ThemePage');
+const QuestionPage = require('../../components/QuestionPage');
 
 router.get('/', async (req, res) => {
   console.log(req);
@@ -20,9 +21,19 @@ router.get('/', async (req, res) => {
 router.get('/:id/questions/game', async (req, res) => {
   try {
     const { id } = req.params;
-    const questions = Question.findAll({ where: theme_id = id });
+    const questions = await Question.findAll({ where: { theme_id: id }, order: [['id', 'ASC']] });
+    const question = questions[0];
+    const theme = await Theme.findOne({ where: { id } });
+    const answers = await Answer.findAll({ where: { question_id: question.id } });
+    const html = res.renderComponent(QuestionPage, {
+      title: theme.name,
+      question,
+      answers,
+    });
+    res.status(200).send(html);
   } catch ({ message }) {
     console.log(message);
+    res.status(500).send('Кажется что-то случилось :(');
   }
 });
 
