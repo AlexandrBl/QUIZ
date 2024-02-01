@@ -10,6 +10,7 @@ function Layout({ children, title, user }) {
         <link rel="stylesheet" href="/css/reset.css" />
         <link rel="stylesheet" href="/css/style.css" />
         <script defer src="/scripts/registrationScript.js" />
+        <script defer src="/scripts/questionScript.js" />
         <title>{title}</title>
       </head>
       <body>
