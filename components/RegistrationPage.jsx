@@ -2,7 +2,7 @@ const React = require('react');
 const Layout = require('./Layout');
 const RegForm = require('./RegForm');
 
-function Registration({ title }) {
+function RegistrationPage({ title }) {
   return (
     <Layout title={title}>
       <div className="registration">
@@ -17,4 +17,4 @@ function Registration({ title }) {
   );
 }
 
-module.exports = Registration;
+module.exports = RegistrationPage;

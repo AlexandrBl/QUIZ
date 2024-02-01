@@ -9,6 +9,7 @@ function Layout({ children, title, user }) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="/css/reset.css" />
         <link rel="stylesheet" href="/css/style.css" />
+        <script defer src="/scripts/registrationScript.js" />
         <title>{title}</title>
       </head>
       <body>
