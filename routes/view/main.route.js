@@ -6,7 +6,7 @@ router.get('/', async (req, res) => {
   try {
     res.redirect('/registration');
   } catch ({ message }) {
-    console.log(message, '------------------------');
+    res.send(message);
   }
 });
 

@@ -12,7 +12,6 @@ function Layout({ children, title, user }) {
         <title>{title}</title>
       </head>
       <body>
-
         <header className="header">
           <div className="center-container">{user ? <ScoreBar user={user} /> : false}</div>
         </header>
