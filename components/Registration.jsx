@@ -2,9 +2,9 @@ const React = require('react');
 const Layout = require('./Layout');
 const RegForm = require('./RegForm');
 
-function Registration({ user, title }) {
+function Registration({ title }) {
   return (
-    <Layout title="Регистарция">
+    <Layout title={title}>
       <div className="registration">
 
         <div className="main__left">

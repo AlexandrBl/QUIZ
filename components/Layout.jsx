@@ -14,7 +14,7 @@ function Layout({ children, title, user }) {
       <body>
 
         <header className="header">
-          <div className="center-container"><ScoreBar user={user} /></div>
+          <div className="center-container">{user ? <ScoreBar user={user} /> : false}</div>
         </header>
         <main className="main">
           <div className="center-container">{children}</div>
