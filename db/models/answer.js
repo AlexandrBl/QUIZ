@@ -4,8 +4,8 @@ const {
 
 module.exports = (sequelize, DataTypes) => {
   class Answer extends Model {
-    static associate(models) {
-      // define association here
+    static associate({ Question }) {
+      this.belongsTo(Question, { foreignKey: 'question_id' });
     }
   }
   Answer.init({

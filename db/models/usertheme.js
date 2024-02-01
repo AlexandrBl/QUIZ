@@ -4,8 +4,9 @@ const {
 
 module.exports = (sequelize, DataTypes) => {
   class UserTheme extends Model {
-    static associate(models) {
-      // define association here
+    static associate({ User, Theme }) {
+      this.belongsTo(User, { foreignKey: 'user_id' });
+      this.belongsTo(Theme, { foreignKey: 'theme_id' });
     }
   }
   UserTheme.init({
