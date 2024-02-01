@@ -9,7 +9,7 @@ router.get('/', async (req, res) => {
   console.log(req);
   try {
     const theme = await Theme.findAll();
-    console.log(res.app.locals.user)
+    console.log(res.app.locals.user);
     const html = res.renderComponent(ThemePage, { theme, title: 'Выбор темы' });
     res.status(200).send(html);
   } catch ({ message }) {
