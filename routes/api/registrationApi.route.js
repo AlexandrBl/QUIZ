@@ -9,11 +9,11 @@ router.post('/', async (req, res) => {
     if (name && nickname) {
       const dbUser = await User.findOne({ where: { nickname } });
       if (dbUser) {
-        console.log('юзер существует');
+        console.log('User already exists');
         res.json({ message: 'Извините, такой пользователь уже существует' });
       } else {
         const user = await User.create({ name, nickname });
-        res.app.locals.name = user.name;
+        res.app.locals.user = user;
         res.json({ message: 'ok' });
       }
     } else {
