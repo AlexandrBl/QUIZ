@@ -9,7 +9,13 @@ module.exports = function QuestionCard({ question, answers }) {
       </div>
       <div className="main__right">
         <form className="question">
-          {answers.map((answer) => <input type="checkbox" className="radio" value={answer.isRight}>{answer.answer_text}</input>)}
+          {answers.map((el, index) => (
+            <div className="question__choose">
+              <input id={index} name="unique-radio" type="radio" className="question__choose-radio" value={el.id} />
+              {' '}
+              <label className="question__choose-text">{el.answer_text}</label>
+            </div>
+          ))}
           <button type="submit" className="question__button button">Проверить ответ</button>
           <p className="question__result" />
         </form>
