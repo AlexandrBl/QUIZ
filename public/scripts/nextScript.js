@@ -1,37 +1,36 @@
 const nextButton = document.querySelector('.scroll__ahead');
-const mainContainer = document.querySelector('.main');
+const questionContainer = document.querySelector('.question');
+let index = 0;
 
 if (nextButton) {
   nextButton.addEventListener('click', async (event) => {
     event.preventDefault();
-
-    const { index, theme_id } = event.target.dataset;
-
+    const theme = event.target.dataset.id;
     const nextQuestion = await fetch('/api/next', {
       method: 'POST',
       headers: {
-        'Content-type': 'aplication.json',
+        'Content-type': 'application/json',
       },
       body: JSON.stringify({
         index,
-        theme_id,
+        theme,
       }),
     });
-
     const data = await nextQuestion.json();
 
     if (data.message === 'ok') {
-      mainContainer.innerHTML = data.html;
+      questionContainer.innerHTML = data.html;
     } else if (data.message === 'redirect') {
       window.location.assign('/themes');
     } else {
-      mainContainer.innerHTML = '';
-      mainContainer.insertAdjacentElement('beforeend', `
-      <div>
-      <p>${data.message}</p>
-      <a href='http://localhost:3000/themes'>Вернуться к выбору темы</a>
-      </div>
-      `);
+      questionContainer.innerHTML = '';
+      questionContainer.insertAdjacentElement('beforeend', `
+        <div>
+        <p>${data.message}</p>
+        <a href='http://localhost:3000/themes'>Вернуться к выбору темы</a>
+        </div>
+        `);
     }
+    index += 1;
   });
 }

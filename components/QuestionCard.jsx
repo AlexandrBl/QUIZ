@@ -19,10 +19,6 @@ module.exports = function QuestionCard({ question, answers, index = 0 }) {
           <button type="submit" className="question__button button">Проверить ответ</button>
           <p className="question__result" />
         </form>
-        <div className="scroll">
-          <button type="button" className="scroll__back button">Назад</button>
-          <button type="button" data-id={question.theme_id} data-index={index} className="scroll__ahead button">Вперед</button>
-        </div>
       </div>
     </div>
   );

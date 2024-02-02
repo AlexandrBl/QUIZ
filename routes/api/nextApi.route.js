@@ -6,11 +6,13 @@ const router = express.Router();
 
 router.post('/', async (req, res) => {
   try {
-    const { index, theme_id } = req.body;
-    const questions = await Question.findAll({ where: { theme_id }, order: [['id', 'ASC']] });
+    let { index, theme } = req.body;
+    index = +index;
+    theme = +theme;
+    const questions = await Question.findAll({ where: { theme_id: theme }, order: [['id', 'ASC']] });
     const nextQuestion = questions[index + 1];
-    const answers = await Answer.findAll({ where: { question_id: nextQuestion.id } });
     if (nextQuestion) {
+      const answers = await Answer.findAll({ where: { question_id: nextQuestion.id } });
       const html = res.renderComponent(QuestionCard, {
         question: nextQuestion,
         answers,
