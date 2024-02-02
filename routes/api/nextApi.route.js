@@ -25,7 +25,12 @@ router.post('/', async (req, res) => {
       const { nickname } = res.app.locals.user;
       const user = await User.findOne({ where: { nickname } });
       const scoreToDB = res.app.locals.user.score;
-      const result = await UserTheme.create({ user_id: user.id, theme_id: theme, score: scoreToDB });
+      const userthemes = await UserTheme.findOne({ where: { user_id: user.id, theme_id: theme } });
+      if (!userthemes) {
+        const result = await UserTheme.create({ user_id: user.id, theme_id: theme, score: scoreToDB });
+      } else {
+        const result = await UserTheme.update({ score: scoreToDB }, { where: { user_id: user.id } });
+      }
       res.status(300).json({ message: 'redirect' });
     }
   } catch (error) {
