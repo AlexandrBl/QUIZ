@@ -1,5 +1,6 @@
 const nextButton = document.querySelector('.scroll__ahead');
 const questionContainer = document.querySelector('.question');
+const main = document.querySelector('.main__center-container');
 let index = 0;
 
 if (nextButton) {
@@ -19,7 +20,9 @@ if (nextButton) {
     const data = await nextQuestion.json();
 
     if (data.message === 'ok') {
-      questionContainer.innerHTML = data.html;
+      questionContainer.remove();
+      main.insertAdjacentHTML('afterbegin', data.html);
+      // questionContainer.innerHTML = data.html;
     } else if (data.message === 'redirect') {
       window.location.assign('/themes');
     } else {

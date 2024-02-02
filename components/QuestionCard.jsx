@@ -2,12 +2,12 @@ const React = require('react');
 
 module.exports = function QuestionCard({ question, answers }) {
   return (
-    <div className="question">
-      <div className="main__left">
-        <img src={question.img_path} alt="picture" />
+    <div className="question container">
+      <div className="main__left main__left_question">
+        <img className="question__img" src={question.img_path} alt="picture" />
         <h2 className="question__title title">{question.question_text}</h2>
       </div>
-      <div className="main__right">
+      <div className="main__right main__right_question">
         <form className="question">
           {answers.map((el, index) => (
             <div className="question__choose">
