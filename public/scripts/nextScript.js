@@ -20,9 +20,9 @@ if (nextButton) {
     const data = await nextQuestion.json();
 
     if (data.message === 'ok') {
-      questionContainer.remove();
-      main.insertAdjacentHTML('afterbegin', data.html);
-      // questionContainer.innerHTML = data.html;
+      // questionContainer.remove();
+      // main.insertAdjacentHTML('afterbegin', data.html);
+      questionContainer.innerHTML = data.html;
     } else if (data.message === 'redirect') {
       window.location.assign('/themes');
     } else {
