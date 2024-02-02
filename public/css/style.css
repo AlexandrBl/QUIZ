@@ -314,9 +314,10 @@ form {
   left: calc(50% - 12rem)
 }
 
-.scroll__ahead{
-
-
+.table {
+  width: 100%;
+  background-color: var(--black-color);
+  border-radius: 2rem;
 }
 
 /* Footer style */
