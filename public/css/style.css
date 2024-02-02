@@ -41,7 +41,7 @@
 }
 
 :root {
-  --purple-color: rgba(69, 32, 171, 1);
+  --purple-color: rgb(114, 80, 209);
   --black-color: rgba(20, 20, 20, 0.5);
   --orange-color: rgba(255, 188, 91, 1);
   --white-color: rgba(255, 255, 255, 1);
