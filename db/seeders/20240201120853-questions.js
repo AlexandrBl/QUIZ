@@ -33,7 +33,7 @@ module.exports = {
       {
         question_text: 'Что говорит ошибка, если не написать консоль лог',
         theme_id: 1,
-        img_path: '/images/placeholder.jpeg',
+        img_path: '/images/catch.jpeg',
         createdAt: new Date(),
         updatedAt: new Date(),
       },
@@ -47,7 +47,7 @@ module.exports = {
       {
         question_text: 'Валюта какой страны изображена на картинке',
         theme_id: 2,
-        img_path: '/images/placeholder.jpeg',
+        img_path: '/images/valuta.jpeg',
         createdAt: new Date(),
         updatedAt: new Date(),
       },
