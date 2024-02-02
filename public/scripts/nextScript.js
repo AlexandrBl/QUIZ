@@ -23,6 +23,8 @@ if (nextButton) {
       // questionContainer.remove();
       // main.insertAdjacentHTML('afterbegin', data.html);
       questionContainer.innerHTML = data.html;
+      
+      console.log(data.html);
     } else if (data.message === 'redirect') {
       window.location.assign('/themes');
     } else {
