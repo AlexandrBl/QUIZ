@@ -278,14 +278,20 @@ img{
 form {
   border-radius: 1rem;
   height: 40rem;
-  width: 100%;
+  width: 80%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: left;
   background-color: var(--black-color);
   height: 30rem;
+  padding: 0rem 2rem 0rem 5rem
  
+}
+
+.question__button {
+  margin-left: 5.5rem;
+  margin-top: 2rem;
 }
 
 .question__choose {
@@ -316,8 +322,27 @@ form {
 
 .table {
   width: 100%;
+  height: 30rem;
   background-color: var(--black-color);
   border-radius: 2rem;
+}
+
+.table__title {
+  color: var(--orange-color);
+  font-size: 3rem;
+  font-weight: 600;
+  padding: 1rem;
+  margin: 3rem;
+}
+
+.table__row {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: space-around;
+  background-color: var(--white-color-opacity);
+  font-size: 1.7rem;
+  font-weight: 500;
 }
 
 /* Footer style */
