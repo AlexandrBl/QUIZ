@@ -5,7 +5,7 @@ const RegForm = require('./RegForm');
 function RegistrationPage({ title }) {
   return (
     <Layout title={title}>
-      <div className="registration">
+      <div className="registration container">
 
         <div className="main__left">
           <h1 className="registration__title title">Зарегайся</h1>
