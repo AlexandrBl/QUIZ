@@ -16,6 +16,8 @@ function Layout({ children, title, user }) {
       </head>
       <body>
         <header className="header">
+          <a href="/themes" className="header__nav themes_link link">Список тем</a>
+          <a href="/topusers" className="header__nav topusers_link link">Таблица рекордов</a>
           <div className="center-container">{user ? <ScoreBar user={user} /> : false}</div>
         </header>
         <main className="main">

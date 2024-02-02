@@ -5,11 +5,13 @@ const registrationApiRouter = require('./api/registrationApi.route');
 const themesRouter = require('./view/themes.route');
 const themesApiRouter = require('./api/themesApi.route');
 const nextApiRouter = require('./api/nextApi.route');
+const topusersRouter = require('./view/topusers.route');
 
 router.use('/', mainRouter);
 router.use('/registration', registrationRouter);
 router.use('/api/registration', registrationApiRouter);
 router.use('/themes', themesRouter);
+router.use('/topusers', topusersRouter);
 router.use('/api/themes', themesApiRouter);
 router.use('/api/next', nextApiRouter);
 
