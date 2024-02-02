@@ -4,13 +4,13 @@ module.exports = {
     await queryInterface.bulkInsert('Themes', [
       {
         name: 'Coding',
-        img_path: '/images/coding.png',
+        img_path: '/images/placeholder.jpeg',
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
         name: 'Food',
-        img_path: '/images/food.png',
+        img_path: '/images/placeholder.jpeg',
         createdAt: new Date(),
         updatedAt: new Date(),
       },

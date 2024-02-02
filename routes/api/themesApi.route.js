@@ -12,13 +12,18 @@ router.post('/', async (req, res) => {
     } else {
       const answer = await Answer.findOne({ where: { id } });
       if (answer.isRight) {
-        res.json({ message: 'Правильно' });
+        res.app.locals.user.score += 5;
+        const scoreToRender = res.app.locals.user.score;
+        res.json({ message: 'Правильно', scoreToRender });
       } else {
-        res.json({ message: 'Не правильно' });
+        res.app.locals.user.score -= 2;
+        const scoreToRender = res.app.locals.user.score;
+        res.json({ message: 'Не правильно', scoreToRender });
       }
     }
   } catch ({ message }) {
-    res.json({ message });
+    const scoreToRender = res.app.locals.user.score;
+    res.json({ message, scoreToRender });
   }
 });
 

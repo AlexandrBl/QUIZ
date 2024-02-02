@@ -1,5 +1,7 @@
 const express = require('express');
-const { Question, Answer } = require('../../db/models');
+const {
+  Question, Answer, UserTheme, User,
+} = require('../../db/models');
 const QuestionCard = require('../../components/QuestionCard');
 
 const router = express.Router();
@@ -20,6 +22,10 @@ router.post('/', async (req, res) => {
       }, { doctype: false });
       res.status(200).json({ html, message: 'ok' });
     } else {
+      const { nickname } = res.app.locals.user;
+      const user = await User.findOne({ where: { nickname } });
+      const scoreToDB = res.app.locals.user.score;
+      const result = await UserTheme.create({ user_id: user.id, theme_id: theme, score: scoreToDB });
       res.status(300).json({ message: 'redirect' });
     }
   } catch (error) {

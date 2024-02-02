@@ -1,6 +1,6 @@
 const React = require('react');
 
-module.exports = function QuestionCard({ question, answers, index = 0 }) {
+module.exports = function QuestionCard({ question, answers }) {
   return (
     <div className="question">
       <div className="main__left">

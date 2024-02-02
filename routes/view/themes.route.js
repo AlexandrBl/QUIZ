@@ -10,7 +10,7 @@ router.get('/', async (req, res) => {
   console.log(req);
   try {
     const theme = await Theme.findAll();
-    console.log(res.app.locals.user);
+    res.app.locals.user.score = '';
     const html = res.renderComponent(ThemePage, { theme, title: 'Выбор темы' });
     res.status(200).send(html);
   } catch ({ message }) {
@@ -25,6 +25,7 @@ router.get('/:id/questions/game', async (req, res) => {
     const question = questions[0];
     const theme = await Theme.findOne({ where: { id } });
     const answers = await Answer.findAll({ where: { question_id: question.id } });
+    res.app.locals.user.score = 0;
     const html = res.renderComponent(QuestionPage, {
       title: theme.name,
       question,
@@ -33,7 +34,7 @@ router.get('/:id/questions/game', async (req, res) => {
     res.status(200).send(html);
   } catch ({ message }) {
     console.log(message);
-    res.status(500).send('Кажется что-то случилось :(');
+    res.status(500).send('Кажется что-то случилось :((');
   }
 });
 

@@ -14,6 +14,8 @@ router.post('/', async (req, res) => {
       } else {
         const user = await User.create({ name, nickname });
         res.app.locals.user = user;
+        res.app.locals.user.score = '';
+        console.log(res.app.locals.user.score, '1212121212');
         res.json({ message: 'ok' });
       }
     } else {

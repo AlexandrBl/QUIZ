@@ -1,5 +1,5 @@
 const questionForm = document.querySelector('.question');
-const questionResult = document.querySelector('.question__result');
+const scoreP = document.querySelector('.score__int');
 
 if (questionForm) {
   questionForm.addEventListener('submit', async (event) => {
@@ -17,10 +17,14 @@ if (questionForm) {
       }),
     });
     const data = await res.json();
-
+    scoreP.innerHTML = data.scoreToRender;
     if (data.message === 'Правильно') {
+      const questionResult = document.querySelector('.question__result');
       questionResult.innerHTML = data.message;
+      const buttonCheck = document.querySelector('.question__button');
+      buttonCheck.setAttribute('disabled', '');
     } else {
+      const questionResult = document.querySelector('.question__result');
       questionResult.innerHTML = data.message;
     }
   });
