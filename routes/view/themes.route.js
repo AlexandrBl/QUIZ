@@ -7,7 +7,6 @@ const ThemePage = require('../../components/ThemePage');
 const QuestionPage = require('../../components/QuestionPage');
 
 router.get('/', async (req, res) => {
-  console.log(req);
   try {
     const theme = await Theme.findAll();
     res.app.locals.user.score = '';

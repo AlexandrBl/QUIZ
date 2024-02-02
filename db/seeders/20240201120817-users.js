@@ -3,20 +3,20 @@ module.exports = {
   async up(queryInterface) {
     await queryInterface.bulkInsert('Users', [
       {
-        name: 'Default1',
-        nickname: 'Defaultuser1',
+        name: 'Admin',
+        nickname: 'Admin',
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
-        name: 'Default2',
-        nickname: 'Defaultuser2',
+        name: 'Pasha',
+        nickname: 'Pasha',
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
-        name: 'Default3',
-        nickname: 'Defaultuser3',
+        name: 'Sasha',
+        nickname: 'Sasha',
         createdAt: new Date(),
         updatedAt: new Date(),
       },
